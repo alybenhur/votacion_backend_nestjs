@@ -18,11 +18,35 @@ export class UsuarioService {
     return this.personas.find(item => item.cedula == id);
   }
 
-  update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
-    return `This action updates a #${id} usuario`;
+  update(cedula: number, updateUsuarioDto: UpdateUsuarioDto) {
+    let pos =  this.personas.findIndex((e)=>{
+      return  e.cedula == cedula
+  })
+  if (pos != -1)
+  {
+    this.personas[pos].nombre = updateUsuarioDto.nombre
+    this.personas[pos].email = updateUsuarioDto.email
+    this.personas[pos].edad = updateUsuarioDto.edad
+    return this.personas[pos]
+  }
+  else
+   return null
+  
+
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} usuario`;
+  remove(cedula: number) {
+   let pos =  this.personas.findIndex((e)=>{
+         return  e.cedula == cedula
+     })
+     if (pos != -1){
+       let pers = this.personas[pos]
+       this.personas.splice(pos,1)
+       return pers
+
+     }
+     else
+       return null
+      
   }
 }

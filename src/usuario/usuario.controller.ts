@@ -22,13 +22,13 @@ export class UsuarioController {
     return this.usuarioService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
-    return this.usuarioService.update(+id, updateUsuarioDto);
+  @Patch(':cedula')
+  update(@Param('cedula') cedula: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
+    return this.usuarioService.update(+cedula, updateUsuarioDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usuarioService.remove(+id);
+  @Delete(':cedula')
+  remove(@Param('cedula') cedula: string) {
+     return this.usuarioService.remove(+cedula);
   }
 }

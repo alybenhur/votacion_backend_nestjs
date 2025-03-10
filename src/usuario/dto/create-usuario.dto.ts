@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, isNotEmpty, IsNumber } from "class-validator";
+import { IsEmail, IsNotEmpty, isNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class CreateUsuarioDto {
   
@@ -6,6 +6,7 @@ export class CreateUsuarioDto {
     cedula : number
 
     @IsNotEmpty()
+    @IsString()
     nombre : string  
 
     @IsEmail()
